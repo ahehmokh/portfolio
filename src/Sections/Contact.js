@@ -1,5 +1,11 @@
 import { motion } from "framer-motion";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faGithub,
+  faLinkedinIn,
+} from "@fortawesome/free-brands-svg-icons";
+
 const Contact = () => {
   return (
     <section
@@ -61,7 +67,7 @@ const Contact = () => {
         </motion.div>
 
         {/* Contact Content */}
-        <div className="mx-auto max-w-3xl">
+        <div className="mx-auto max-w-5xl">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -85,13 +91,13 @@ const Contact = () => {
             </p>
 
             {/* Contact Cards */}
-            <div className="mt-10 grid gap-4 md:grid-cols-3">
+            <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
 
               {/* Email */}
               <a
                 href="mailto:ahehmokh@gmail.com"
                 className="
-                  flex flex-col items-center
+                  group flex flex-col items-center
                   rounded-2xl
                   border border-white/10
                   bg-white/[0.03]
@@ -110,6 +116,9 @@ const Contact = () => {
                     rounded-xl
                     bg-blue-500/10
                     text-xl text-blue-400
+                    transition duration-300
+                    group-hover:bg-blue-500
+                    group-hover:text-white
                   "
                 >
                   @
@@ -128,7 +137,7 @@ const Contact = () => {
               <a
                 href="tel:+201067387852"
                 className="
-                  flex flex-col items-center
+                  group flex flex-col items-center
                   rounded-2xl
                   border border-white/10
                   bg-white/[0.03]
@@ -147,6 +156,9 @@ const Contact = () => {
                     rounded-xl
                     bg-blue-500/10
                     text-xl text-blue-400
+                    transition duration-300
+                    group-hover:bg-blue-500
+                    group-hover:text-white
                   "
                 >
                   ☎
@@ -167,7 +179,7 @@ const Contact = () => {
                 target="_blank"
                 rel="noreferrer"
                 className="
-                  flex flex-col items-center
+                  group flex flex-col items-center
                   rounded-2xl
                   border border-white/10
                   bg-white/[0.03]
@@ -186,9 +198,12 @@ const Contact = () => {
                     rounded-xl
                     bg-blue-500/10
                     text-xl text-blue-400
+                    transition duration-300
+                    group-hover:bg-blue-500
+                    group-hover:text-white
                   "
                 >
-                  ↗
+                  <FontAwesomeIcon icon={faGithub} />
                 </div>
 
                 <p className="mt-4 text-sm text-gray-500">
@@ -197,6 +212,48 @@ const Contact = () => {
 
                 <p className="mt-1 text-sm font-medium text-gray-200">
                   github.com/ahehmokh
+                </p>
+              </a>
+
+              {/* LinkedIn */}
+              <a
+                href="https://www.linkedin.com/in/ahmed-ehab-bd270898"
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  group flex flex-col items-center
+                  rounded-2xl
+                  border border-white/10
+                  bg-white/[0.03]
+                  p-6
+                  text-center
+                  transition duration-300
+                  hover:-translate-y-1
+                  hover:border-blue-500/40
+                  hover:bg-blue-500/[0.04]
+                "
+              >
+                <div
+                  className="
+                    flex h-12 w-12
+                    items-center justify-center
+                    rounded-xl
+                    bg-blue-500/10
+                    text-xl text-blue-400
+                    transition duration-300
+                    group-hover:bg-blue-500
+                    group-hover:text-white
+                  "
+                >
+                  <FontAwesomeIcon icon={faLinkedinIn} />
+                </div>
+
+                <p className="mt-4 text-sm text-gray-500">
+                  LinkedIn
+                </p>
+
+                <p className="mt-1 text-sm font-medium text-gray-200">
+                  LinkedIn Profile
                 </p>
               </a>
 

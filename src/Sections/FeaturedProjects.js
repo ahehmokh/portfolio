@@ -16,8 +16,8 @@ const FeaturedProjects = () => {
   const projects = [
     {
       title: "Full E-Commerce App",
-      description:
-        "A modern e-commerce application with product browsing, shopping cart functionality, responsive UI, and a complete frontend shopping experience.",
+      note: "A responsive e-commerce application with product browsing, shopping cart functionality, and a smooth shopping experience.",
+      image: "/projects/ecommerce.png",
       technologies: ["React", "JavaScript", "CSS", "API"],
       github: "https://github.com/ahehmokh/Full-Ecommerce-App",
       live: "https://full-ecommerce-app-nu.vercel.app/",
@@ -25,8 +25,8 @@ const FeaturedProjects = () => {
 
     {
       title: "Task Management App",
-      description:
-        "A task management application for creating, organizing and managing tasks with categories, priorities and completion status.",
+      note: "A practical task management application for creating, organizing, prioritizing, and tracking tasks.",
+      image: "/projects/task-manager.png",
       technologies: ["React", "JavaScript", "API"],
       github: "https://github.com/ahehmokh/Task-Management-App",
       live: "https://taskmanagenetapp.vercel.app/",
@@ -34,8 +34,8 @@ const FeaturedProjects = () => {
 
     {
       title: "Learning Platform",
-      description:
-        "A responsive e-learning platform designed to provide users with a structured and interactive learning experience.",
+      note: "A responsive e-learning platform designed to provide users with a structured and interactive learning experience.",
+      image: "/projects/learning-platform.png",
       technologies: ["React", "JavaScript", "CSS"],
       github: "#",
       live: "#",
@@ -43,8 +43,8 @@ const FeaturedProjects = () => {
 
     {
       title: "Memory Game",
-      description:
-        "An interactive memory card game built with React, focusing on state management, user interaction and game logic.",
+      note: "An interactive React memory game focused on state management, user interaction, and game logic.",
+      image: "/projects/memory-game.png",
       technologies: ["React", "JavaScript", "CSS"],
       github: "#",
       live: "#",
@@ -89,7 +89,8 @@ const FeaturedProjects = () => {
             absolute left-1/2 top-0
             h-[350px] w-[650px]
             -translate-x-1/2
-            rounded-full bg-blue-600/10
+            rounded-full
+            bg-blue-600/10
             blur-[140px]
           "
         />
@@ -98,7 +99,8 @@ const FeaturedProjects = () => {
           className="
             absolute bottom-[-200px] right-[-150px]
             h-[450px] w-[450px]
-            rounded-full bg-blue-900/10
+            rounded-full
+            bg-blue-900/10
             blur-[140px]
           "
         />
@@ -132,7 +134,6 @@ const FeaturedProjects = () => {
 
         {/* Filters */}
         <div className="mb-12 flex flex-wrap justify-center gap-3">
-
           {filters.map((filter) => {
             const isActive =
               filter === "All"
@@ -147,7 +148,6 @@ const FeaturedProjects = () => {
                   rounded-xl border px-5 py-2.5
                   text-sm font-medium
                   transition duration-300
-
                   ${
                     isActive
                       ? "border-blue-500 bg-blue-600 text-white shadow-[0_0_20px_rgba(59,130,246,0.3)]"
@@ -159,13 +159,11 @@ const FeaturedProjects = () => {
               </button>
             );
           })}
-
         </div>
 
         {/* Selected Filters */}
         {selectedFilters.length > 0 && (
           <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
-
             <span className="mr-2 text-sm text-gray-500">
               Selected:
             </span>
@@ -196,14 +194,12 @@ const FeaturedProjects = () => {
             >
               Clear
             </button>
-
           </div>
         )}
 
         {/* Projects */}
         <div className="grid gap-8 md:grid-cols-2">
-
-          {filteredProjects.map((project, index) => (
+          {filteredProjects.map((project) => (
             <motion.article
               key={project.title}
               layout
@@ -222,51 +218,54 @@ const FeaturedProjects = () => {
               "
             >
 
-              {/* Preview */}
+              {/* Project Image */}
               <div
                 className="
-                  relative flex h-56
-                  items-center justify-center
+                  relative h-56
                   overflow-hidden
-                  bg-gradient-to-br
-                  from-blue-950
-                  via-black
-                  to-gray-950
+                  bg-gray-950
                 "
               >
-                <div
+                <img
+                  src={project.image}
+                  alt={`${project.title} preview`}
                   className="
-                    absolute h-40 w-40
-                    rounded-full
-                    bg-blue-600/20
-                    blur-[70px]
-                    transition duration-500
-                    group-hover:bg-blue-500/30
+                    h-full
+                    w-full
+                    object-cover
+                    transition
+                    duration-700
+                    group-hover:scale-105
                   "
                 />
 
-                <span
+                {/* Overlay */}
+                <div
                   className="
-                    relative z-10
-                    text-5xl font-bold
-                    text-white/10
+                    absolute inset-0
+                    bg-black/20
                     transition duration-500
-                    group-hover:text-blue-500/30
+                    group-hover:bg-black/0
                   "
-                >
-                  {String(index + 1).padStart(2, "0")}
-                </span>
+                />
               </div>
 
               {/* Content */}
               <div className="p-7">
 
-                <h3 className="text-2xl font-bold transition duration-300 group-hover:text-blue-400">
+                <h3
+                  className="
+                    text-2xl font-bold
+                    transition duration-300
+                    group-hover:text-blue-400
+                  "
+                >
                   {project.title}
                 </h3>
 
+                {/* Short Note */}
                 <p className="mt-4 leading-7 text-gray-400">
-                  {project.description}
+                  {project.note}
                 </p>
 
                 {/* Technologies */}
@@ -331,10 +330,8 @@ const FeaturedProjects = () => {
 
                 </div>
               </div>
-
             </motion.article>
           ))}
-
         </div>
 
         {/* No Results */}
@@ -353,10 +350,12 @@ const FeaturedProjects = () => {
             target="_blank"
             rel="noreferrer"
             className="
-              inline-block rounded-xl
+              inline-block
+              rounded-xl
               border border-white/10
               px-7 py-3
-              font-medium text-gray-300
+              font-medium
+              text-gray-300
               transition duration-300
               hover:border-blue-500
               hover:text-white

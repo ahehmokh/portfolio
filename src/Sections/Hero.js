@@ -519,7 +519,7 @@ const Hero = () => {
             </a>
 
             <a
-              href="/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
+              href="/Ahmed_Ehab_Mokhtar_CV.pdf"
               download
               className="
                 rounded-xl
