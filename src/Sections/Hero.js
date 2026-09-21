@@ -1,6 +1,43 @@
 import { motion } from "framer-motion";
 
 const Hero = () => {
+  const handleDownloadCV = async () => {
+    try {
+      const response = await fetch(
+        "/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
+      );
+
+      if (!response.ok) {
+        throw new Error("CV file not found");
+      }
+
+      const blob = await response.blob();
+
+      const url = window.URL.createObjectURL(blob);
+
+      const link = document.createElement("a");
+
+      link.href = url;
+      link.download = "Ahmed_Ehab_Mokhtar_CV.pdf";
+
+      document.body.appendChild(link);
+
+      link.click();
+
+      document.body.removeChild(link);
+
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error("CV download failed:", error);
+
+      // Fallback: open the CV
+      window.open(
+        "/Ahmed_Ehab_Mokhtar_CV_Complete.pdf",
+        "_blank"
+      );
+    }
+  };
+
   return (
     <section className="relative min-h-screen overflow-hidden bg-black text-white">
       {/* ================================================= */}
@@ -184,11 +221,7 @@ const Hero = () => {
             duration: 1,
             ease: [0.22, 1, 0.36, 1],
           }}
-          className="
-            mx-auto
-            w-full
-            max-w-[300px]
-          "
+          className="mx-auto w-full max-w-[300px]"
         >
           <img
             src="/Ahmed.png"
@@ -228,7 +261,9 @@ const Hero = () => {
             text-center
           "
         >
-          <p className="text-base text-blue-400 sm:text-lg">Hello, I'm</p>
+          <p className="text-base text-blue-400 sm:text-lg">
+            Hello, I'm
+          </p>
 
           <h1
             className="
@@ -253,7 +288,9 @@ const Hero = () => {
             "
           >
             Front-End / Full-Stack
-            <span className="block text-blue-500">React Developer</span>
+            <span className="block text-blue-500">
+              React Developer
+            </span>
           </h2>
 
           <p
@@ -267,68 +304,68 @@ const Hero = () => {
               sm:text-base
             "
           >
-            I build modern, responsive and scalable web applications using
-            React.js and modern frontend technologies.
+            I build modern, responsive and scalable web
+            applications using React.js and modern frontend
+            technologies.
           </p>
 
           {/* ================= MOBILE BUTTONS ================= */}
 
           <div
             className="
-    mt-8
-    flex
-    flex-col
-    items-center
-    gap-3
-    sm:flex-row
-    sm:justify-center
-  "
+              mt-8
+              flex
+              flex-col
+              items-center
+              gap-3
+              sm:flex-row
+              sm:justify-center
+            "
           >
             {/* View Projects */}
 
             <a
               href="#projects"
               className="
-      w-full
-      max-w-[260px]
-      rounded-xl
-      bg-blue-600
-      px-6
-      py-3
-      font-medium
-      transition
-      duration-300
-      hover:bg-blue-500
-      hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]
-    "
+                w-full
+                max-w-[260px]
+                rounded-xl
+                bg-blue-600
+                px-6
+                py-3
+                font-medium
+                transition
+                duration-300
+                hover:bg-blue-500
+                hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]
+              "
             >
               View My Projects
             </a>
 
-            {/* View CV */}
+            {/* Download CV */}
 
-            <a
-              href="/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={handleDownloadCV}
               className="
-      w-full
-      max-w-[260px]
-      rounded-xl
-      border
-      border-white/20
-      px-6
-      py-3
-      font-medium
-      text-gray-300
-      transition
-      duration-300
-      hover:border-blue-500
-      hover:text-white
-    "
+                w-full
+                max-w-[260px]
+                rounded-xl
+                border
+                border-white/20
+                px-6
+                py-3
+                font-medium
+                text-gray-300
+                transition
+                duration-300
+                hover:border-blue-500
+                hover:text-white
+              "
             >
-              View CV
-            </a>
+              Download CV
+            </button>
           </div>
         </motion.div>
       </div>
@@ -416,7 +453,9 @@ const Hero = () => {
             -translate-y-1/2
           "
         >
-          <p className="text-xl text-blue-400">Hello, I'm</p>
+          <p className="text-xl text-blue-400">
+            Hello, I'm
+          </p>
 
           <h1
             className="
@@ -440,7 +479,9 @@ const Hero = () => {
             "
           >
             Front-End / Full-Stack
-            <span className="block text-blue-500">React Developer</span>
+            <span className="block text-blue-500">
+              React Developer
+            </span>
           </h2>
 
           <p
@@ -452,8 +493,9 @@ const Hero = () => {
               text-gray-400
             "
           >
-            I build modern, responsive and scalable web applications using
-            React.js, JavaScript and modern frontend technologies.
+            I build modern, responsive and scalable web
+            applications using React.js, JavaScript and
+            modern frontend technologies.
           </p>
 
           {/* ================= DESKTOP BUTTONS ================= */}
@@ -478,12 +520,11 @@ const Hero = () => {
               View My Projects
             </a>
 
-            {/* View CV */}
+            {/* Download CV */}
 
-            <a
-              href="/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
-              target="_blank"
-              rel="noopener noreferrer"
+            <button
+              type="button"
+              onClick={handleDownloadCV}
               className="
                 rounded-xl
                 border
@@ -498,8 +539,8 @@ const Hero = () => {
                 hover:text-white
               "
             >
-              View CV
-            </a>
+              Download CV
+            </button>
           </div>
         </motion.div>
       </div>
