@@ -7,7 +7,7 @@ const Hero = () => {
       {/* ================= BACKGROUND ==================== */}
       {/* ================================================= */}
 
-      <div className="absolute inset-0 overflow-hidden">
+      <div className="pointer-events-none absolute inset-0 overflow-hidden">
         {/* Main blue glow */}
         <div
           className="
@@ -151,7 +151,7 @@ const Hero = () => {
       </div>
 
       {/* ================================================= */}
-      {/* ================= MOBILE LAYOUT ================== */}
+      {/* ================= MOBILE LAYOUT ================= */}
       {/* ================================================= */}
 
       <div
@@ -161,180 +161,176 @@ const Hero = () => {
           flex
           min-h-screen
           flex-col
+          px-5
+          pb-12
+          pt-24
           md:hidden
         "
       >
         {/* ================= MOBILE PHOTO ================= */}
 
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            scale: 0.85,
+            y: 30,
+          }}
+          animate={{
+            opacity: 1,
+            scale: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className="
-            flex
-            h-[48vh]
-            items-end
-            justify-center
-            px-5
-            pb-6
+            mx-auto
+            w-full
+            max-w-[300px]
           "
         >
-          <motion.div
-            initial={{
-              opacity: 0,
-              scale: 0.85,
-              y: 30,
-            }}
-            animate={{
-              opacity: 1,
-              scale: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="w-full max-w-[300px]"
-          >
-            <img
-              src="/Ahmed.png"
-              alt="Ahmed Ehab"
-              className="
-                w-full
-                rounded-[20px]
-                border
-                border-white/10
-                object-cover
-                shadow-[0_0_45px_rgba(59,130,246,0.3)]
-              "
-            />
-          </motion.div>
-        </div>
+          <img
+            src="/Ahmed.png"
+            alt="Ahmed Ehab"
+            className="
+              w-full
+              rounded-[20px]
+              border
+              border-white/10
+              object-cover
+              shadow-[0_0_45px_rgba(59,130,246,0.3)]
+            "
+          />
+        </motion.div>
 
         {/* ================= MOBILE INTRO ================= */}
 
-        <div
+        <motion.div
+          initial={{
+            opacity: 0,
+            y: 35,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 1,
+            delay: 0.5,
+            ease: [0.22, 1, 0.36, 1],
+          }}
           className="
-            flex
-            min-h-[52vh]
-            flex-1
-            items-center
-            justify-center
-            px-5
-            pb-10
+            mx-auto
+            mt-10
+            w-full
+            max-w-[500px]
             text-center
           "
         >
-          <motion.div
-            initial={{
-              opacity: 0,
-              y: 35,
-            }}
-            animate={{
-              opacity: 1,
-              y: 0,
-            }}
-            transition={{
-              duration: 1,
-              delay: 0.7,
-              ease: [0.22, 1, 0.36, 1],
-            }}
-            className="w-full max-w-[500px]"
+          <p className="text-base text-blue-400 sm:text-lg">Hello, I'm</p>
+
+          <h1
+            className="
+              mt-2
+              text-4xl
+              font-bold
+              tracking-tight
+              sm:text-5xl
+            "
           >
-            <p className="text-lg text-blue-400">Hello, I'm</p>
+            Ahmed Ehab
+          </h1>
 
-            <h1
+          <h2
+            className="
+              mt-4
+              text-xl
+              font-semibold
+              leading-relaxed
+              text-gray-300
+              sm:text-2xl
+            "
+          >
+            Front-End / Full-Stack
+            <span className="block text-blue-500">React Developer</span>
+          </h2>
+
+          <p
+            className="
+              mx-auto
+              mt-5
+              max-w-[420px]
+              text-sm
+              leading-7
+              text-gray-400
+              sm:text-base
+            "
+          >
+            I build modern, responsive and scalable web applications using
+            React.js and modern frontend technologies.
+          </p>
+
+          {/* ================= MOBILE BUTTONS ================= */}
+
+          <div
+            className="
+    mt-8
+    flex
+    flex-col
+    items-center
+    gap-3
+    sm:flex-row
+    sm:justify-center
+  "
+          >
+            {/* View Projects */}
+
+            <a
+              href="#projects"
               className="
-                mt-2
-                text-4xl
-                font-bold
-                tracking-tight
-                sm:text-5xl
-              "
+      w-full
+      max-w-[260px]
+      rounded-xl
+      bg-blue-600
+      px-6
+      py-3
+      font-medium
+      transition
+      duration-300
+      hover:bg-blue-500
+      hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]
+    "
             >
-              Ahmed Ehab
-            </h1>
+              View My Projects
+            </a>
 
-            <h2
+            {/* View CV */}
+
+            <a
+              href="/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
-                mt-4
-                text-xl
-                font-semibold
-                leading-relaxed
-                text-gray-300
-              "
+      w-full
+      max-w-[260px]
+      rounded-xl
+      border
+      border-white/20
+      px-6
+      py-3
+      font-medium
+      text-gray-300
+      transition
+      duration-300
+      hover:border-blue-500
+      hover:text-white
+    "
             >
-              Front-End / Full-Stack
-              <span className="block text-blue-500">React Developer</span>
-            </h2>
-
-            <p
-              className="
-                mx-auto
-                mt-5
-                max-w-[420px]
-                text-sm
-                leading-7
-                text-gray-400
-              "
-            >
-              I build modern, responsive and scalable web applications using
-              React.js and modern frontend technologies.
-            </p>
-
-            {/* Mobile Buttons */}
-
-            <div
-              className="
-                mt-7
-                flex
-                flex-col
-                items-center
-                gap-4
-                sm:flex-row
-                sm:justify-center
-              "
-            >
-              <a
-                href="#projects"
-                className="
-                  w-full
-                  max-w-[220px]
-                  rounded-xl
-                  bg-blue-600
-                  px-6
-                  py-3
-                  font-medium
-                  transition
-                  duration-300
-                  hover:bg-blue-500
-                  hover:shadow-[0_0_25px_rgba(59,130,246,0.5)]
-                "
-              >
-                View My Projects
-              </a>
-
-              <a
-                href="/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
-                download
-                className="
-                  w-full
-                  max-w-[220px]
-                  rounded-xl
-                  border
-                  border-white/20
-                  px-6
-                  py-3
-                  font-medium
-                  text-gray-300
-                  transition
-                  duration-300
-                  hover:border-blue-500
-                  hover:text-white
-                "
-              >
-                Download CV
-              </a>
-            </div>
-          </motion.div>
-        </div>
+              View CV
+            </a>
+          </div>
+        </motion.div>
       </div>
 
       {/* ================================================= */}
@@ -460,9 +456,11 @@ const Hero = () => {
             React.js, JavaScript and modern frontend technologies.
           </p>
 
-          {/* Desktop Buttons */}
+          {/* ================= DESKTOP BUTTONS ================= */}
 
           <div className="mt-7 flex gap-4">
+            {/* View Projects */}
+
             <a
               href="#projects"
               className="
@@ -480,23 +478,25 @@ const Hero = () => {
               View My Projects
             </a>
 
+            {/* View CV */}
+
             <a
-              href="/Ahmed_Ehab_Mokhtar_CV.pdf"
+              href="/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="
-    rounded-xl
-    border
-    border-white/20
-    px-6
-    py-3
-    font-medium
-    text-gray-300
-    transition
-    duration-300
-    hover:border-blue-500
-    hover:text-white
-  "
+                rounded-xl
+                border
+                border-white/20
+                px-6
+                py-3
+                font-medium
+                text-gray-300
+                transition
+                duration-300
+                hover:border-blue-500
+                hover:text-white
+              "
             >
               View CV
             </a>
