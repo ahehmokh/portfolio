@@ -1,0 +1,91 @@
+.hero {
+  position: relative;
+  height: 100vh;
+  overflow: hidden;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Electric background */
+
+.electric-background {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.electric {
+  position: absolute;
+  width: 500px;
+  height: 800px;
+  fill: none;
+
+  stroke: #ffffff;
+  stroke-width: 2;
+
+  filter:
+    drop-shadow(0 0 5px #ffffff)
+    drop-shadow(0 0 15px #5c7cff)
+    drop-shadow(0 0 30px #3155ff);
+
+  stroke-dasharray: 20 35;
+  animation: electricity 1.5s linear infinite;
+}
+
+.electric path {
+  vector-effect: non-scaling-stroke;
+}
+
+.electric-left {
+  left: -100px;
+  top: -50px;
+  animation-duration: 1.2s;
+}
+
+.electric-right {
+  right: -100px;
+  top: -50px;
+  animation-duration: 0.9s;
+  animation-delay: -0.4s;
+}
+
+.electric-center {
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  opacity: 0.5;
+  animation-duration: 1.8s;
+  animation-delay: -0.8s;
+}
+
+/* Moving electricity */
+
+@keyframes electricity {
+  from {
+    stroke-dashoffset: 0;
+  }
+
+  to {
+    stroke-dashoffset: -200;
+  }
+}
+
+/* Photo */
+
+.hero-image {
+  position: relative;
+  z-index: 10;
+}
+
+.hero-image img {
+  width: 350px;
+  max-width: 80vw;
+  display: block;
+
+  filter:
+    drop-shadow(0 0 20px rgba(255, 255, 255, 0.15))
+    drop-shadow(0 0 50px rgba(70, 100, 255, 0.2));
+}
