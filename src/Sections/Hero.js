@@ -4,7 +4,7 @@ const Hero = () => {
   const handleDownloadCV = async () => {
     try {
       const response = await fetch(
-        "/Ahmed_Ehab_Mokhtar_CV_Complete.pdf"
+        "/Ahmed_Ehab_Mokhtar_CV.pdf"
       );
 
       if (!response.ok) {
@@ -32,7 +32,7 @@ const Hero = () => {
 
       // Fallback: open the CV
       window.open(
-        "/Ahmed_Ehab_Mokhtar_CV_Complete.pdf",
+        "/Ahmed_Ehab_Mokhtar_CV.pdf",
         "_blank"
       );
     }
