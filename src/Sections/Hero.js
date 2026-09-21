@@ -3,13 +3,11 @@ import { motion } from "framer-motion";
 const Hero = () => {
   return (
     <section className="relative min-h-screen overflow-hidden bg-black text-white">
-
       {/* ================================================= */}
       {/* ================= BACKGROUND ==================== */}
       {/* ================================================= */}
 
       <div className="absolute inset-0 overflow-hidden">
-
         {/* Main blue glow */}
         <div
           className="
@@ -150,9 +148,7 @@ const Hero = () => {
             to-transparent
           "
         />
-
       </div>
-
 
       {/* ================================================= */}
       {/* ================= MOBILE LAYOUT ================== */}
@@ -168,7 +164,6 @@ const Hero = () => {
           md:hidden
         "
       >
-
         {/* ================= MOBILE PHOTO ================= */}
 
         <div
@@ -181,7 +176,6 @@ const Hero = () => {
             pb-6
           "
         >
-
           <motion.div
             initial={{
               opacity: 0,
@@ -199,7 +193,6 @@ const Hero = () => {
             }}
             className="w-full max-w-[300px]"
           >
-
             <img
               src="/Ahmed.png"
               alt="Ahmed Ehab"
@@ -212,11 +205,8 @@ const Hero = () => {
                 shadow-[0_0_45px_rgba(59,130,246,0.3)]
               "
             />
-
           </motion.div>
-
         </div>
-
 
         {/* ================= MOBILE INTRO ================= */}
 
@@ -232,7 +222,6 @@ const Hero = () => {
             text-center
           "
         >
-
           <motion.div
             initial={{
               opacity: 0,
@@ -249,10 +238,7 @@ const Hero = () => {
             }}
             className="w-full max-w-[500px]"
           >
-
-            <p className="text-lg text-blue-400">
-              Hello, I'm
-            </p>
+            <p className="text-lg text-blue-400">Hello, I'm</p>
 
             <h1
               className="
@@ -276,10 +262,7 @@ const Hero = () => {
               "
             >
               Front-End / Full-Stack
-
-              <span className="block text-blue-500">
-                React Developer
-              </span>
+              <span className="block text-blue-500">React Developer</span>
             </h2>
 
             <p
@@ -292,11 +275,9 @@ const Hero = () => {
                 text-gray-400
               "
             >
-              I build modern, responsive and scalable web
-              applications using React.js and modern frontend
-              technologies.
+              I build modern, responsive and scalable web applications using
+              React.js and modern frontend technologies.
             </p>
-
 
             {/* Mobile Buttons */}
 
@@ -311,7 +292,6 @@ const Hero = () => {
                 sm:justify-center
               "
             >
-
               <a
                 href="#projects"
                 className="
@@ -352,15 +332,10 @@ const Hero = () => {
               >
                 Download CV
               </a>
-
             </div>
-
           </motion.div>
-
         </div>
-
       </div>
-
 
       {/* ================================================= */}
       {/* ================= DESKTOP LAYOUT ================= */}
@@ -375,7 +350,6 @@ const Hero = () => {
           md:block
         "
       >
-
         {/* ================= DESKTOP PHOTO ================= */}
 
         <motion.div
@@ -407,7 +381,6 @@ const Hero = () => {
             lg:w-[470px]
           "
         >
-
           <img
             src="/Ahmed.png"
             alt="Ahmed Ehab"
@@ -420,9 +393,7 @@ const Hero = () => {
               shadow-[0_0_50px_rgba(59,130,246,0.35)]
             "
           />
-
         </motion.div>
-
 
         {/* ================= DESKTOP INTRO ================= */}
 
@@ -449,10 +420,7 @@ const Hero = () => {
             -translate-y-1/2
           "
         >
-
-          <p className="text-xl text-blue-400">
-            Hello, I'm
-          </p>
+          <p className="text-xl text-blue-400">Hello, I'm</p>
 
           <h1
             className="
@@ -476,10 +444,7 @@ const Hero = () => {
             "
           >
             Front-End / Full-Stack
-
-            <span className="block text-blue-500">
-              React Developer
-            </span>
+            <span className="block text-blue-500">React Developer</span>
           </h2>
 
           <p
@@ -491,16 +456,13 @@ const Hero = () => {
               text-gray-400
             "
           >
-            I build modern, responsive and scalable web
-            applications using React.js, JavaScript and
-            modern frontend technologies.
+            I build modern, responsive and scalable web applications using
+            React.js, JavaScript and modern frontend technologies.
           </p>
-
 
           {/* Desktop Buttons */}
 
           <div className="mt-7 flex gap-4">
-
             <a
               href="#projects"
               className="
@@ -520,30 +482,26 @@ const Hero = () => {
 
             <a
               href="/Ahmed_Ehab_Mokhtar_CV.pdf"
-              download
+              download="Ahmed_Ehab_Mokhtar_CV.pdf"
               className="
-                rounded-xl
-                border
-                border-white/20
-                px-6
-                py-3
-                font-medium
-                text-gray-300
-                transition
-                duration-300
-                hover:border-blue-500
-                hover:text-white
-              "
+    rounded-xl
+    border
+    border-white/20
+    px-6
+    py-3
+    font-medium
+    text-gray-300
+    transition
+    duration-300
+    hover:border-blue-500
+    hover:text-white
+  "
             >
               Download CV
             </a>
-
           </div>
-
         </motion.div>
-
       </div>
-
     </section>
   );
 };
