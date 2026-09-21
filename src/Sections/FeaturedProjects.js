@@ -4,20 +4,13 @@ import { motion } from "framer-motion";
 const FeaturedProjects = () => {
   const [selectedFilters, setSelectedFilters] = useState([]);
 
-  const filters = [
-    "All",
-    "React",
-    "JavaScript",
-    "Node.js",
-    "CSS",
-    "API",
-  ];
+  const filters = ["All", "React", "JavaScript", "Node.js", "CSS", "API"];
 
   const projects = [
     {
       title: "Full E-Commerce App",
       note: "A responsive e-commerce application with product browsing, shopping cart functionality, and a smooth shopping experience.",
-      image: "/projects/ecommerce.png",
+      image: "/Ecommerce.jpg",
       technologies: ["React", "JavaScript", "CSS", "API"],
       github: "https://github.com/ahehmokh/Full-Ecommerce-App",
       live: "https://full-ecommerce-app-nu.vercel.app/",
@@ -26,7 +19,7 @@ const FeaturedProjects = () => {
     {
       title: "Task Management App",
       note: "A practical task management application for creating, organizing, prioritizing, and tracking tasks.",
-      image: "/projects/task-manager.png",
+      image: "/Todos.jpeg",
       technologies: ["React", "JavaScript", "API"],
       github: "https://github.com/ahehmokh/Task-Management-App",
       live: "https://taskmanagenetapp.vercel.app/",
@@ -35,19 +28,19 @@ const FeaturedProjects = () => {
     {
       title: "Learning Platform",
       note: "A responsive e-learning platform designed to provide users with a structured and interactive learning experience.",
-      image: "/projects/learning-platform.png",
-      technologies: ["React", "JavaScript", "CSS"],
-      github: "#",
-      live: "#",
+      image: "/Elearning.jpeg",
+      technologies: ["React", "JavaScript", "Node.js", "API"],
+      github: "https://github.com/ahehmokh/Full-Learning-Platform",
+      live: "https://full-learning-platform.vercel.app/",
     },
 
     {
       title: "Memory Game",
-      note: "An interactive React memory game focused on state management, user interaction, and game logic.",
-      image: "/projects/memory-game.png",
+      note: "An interactive React memory game featuring card matching, game state management, responsive design, and animated user interactions.",
+      image: "/Memory.jpeg",
       technologies: ["React", "JavaScript", "CSS"],
-      github: "#",
-      live: "#",
+      github: "https://github.com/ahehmokh/Memory-Game-using-React.js",
+      live: "https://memory-game-using-react-js.vercel.app/",
     },
   ];
 
@@ -60,7 +53,7 @@ const FeaturedProjects = () => {
     setSelectedFilters((prev) =>
       prev.includes(filter)
         ? prev.filter((item) => item !== filter)
-        : [...prev, filter]
+        : [...prev, filter],
     );
   };
 
@@ -69,8 +62,8 @@ const FeaturedProjects = () => {
       ? projects
       : projects.filter((project) =>
           selectedFilters.some((filter) =>
-            project.technologies.includes(filter)
-          )
+            project.technologies.includes(filter),
+          ),
         );
 
   return (
@@ -107,7 +100,6 @@ const FeaturedProjects = () => {
       </div>
 
       <div className="relative z-10 mx-auto max-w-7xl">
-
         {/* Heading */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
@@ -127,8 +119,8 @@ const FeaturedProjects = () => {
           <div className="mx-auto mt-5 h-[2px] w-20 bg-blue-500" />
 
           <p className="mx-auto mt-6 max-w-2xl leading-7 text-gray-400">
-            A selection of projects I have built using modern
-            frontend technologies.
+            A selection of projects I have built using modern frontend
+            technologies.
           </p>
         </motion.div>
 
@@ -164,9 +156,7 @@ const FeaturedProjects = () => {
         {/* Selected Filters */}
         {selectedFilters.length > 0 && (
           <div className="mb-8 flex flex-wrap items-center justify-center gap-2">
-            <span className="mr-2 text-sm text-gray-500">
-              Selected:
-            </span>
+            <span className="mr-2 text-sm text-gray-500">Selected:</span>
 
             {selectedFilters.map((filter) => (
               <span
@@ -217,7 +207,6 @@ const FeaturedProjects = () => {
                 hover:border-blue-500/40
               "
             >
-
               {/* Project Image */}
               <div
                 className="
@@ -252,7 +241,6 @@ const FeaturedProjects = () => {
 
               {/* Content */}
               <div className="p-7">
-
                 <h3
                   className="
                     text-2xl font-bold
@@ -264,9 +252,7 @@ const FeaturedProjects = () => {
                 </h3>
 
                 {/* Short Note */}
-                <p className="mt-4 leading-7 text-gray-400">
-                  {project.note}
-                </p>
+                <p className="mt-4 leading-7 text-gray-400">{project.note}</p>
 
                 {/* Technologies */}
                 <div className="mt-5 flex flex-wrap gap-2">
@@ -289,7 +275,6 @@ const FeaturedProjects = () => {
 
                 {/* Links */}
                 <div className="mt-7 flex gap-3">
-
                   {project.github !== "#" && (
                     <a
                       href={project.github}
@@ -327,7 +312,6 @@ const FeaturedProjects = () => {
                       Live Demo
                     </a>
                   )}
-
                 </div>
               </div>
             </motion.article>
@@ -364,7 +348,6 @@ const FeaturedProjects = () => {
             View More Projects on GitHub →
           </a>
         </div>
-
       </div>
     </section>
   );
