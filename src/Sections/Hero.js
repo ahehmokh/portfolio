@@ -482,7 +482,8 @@ const Hero = () => {
 
             <a
               href="/Ahmed_Ehab_Mokhtar_CV.pdf"
-              download="Ahmed_Ehab_Mokhtar_CV.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
               className="
     rounded-xl
     border
@@ -497,7 +498,7 @@ const Hero = () => {
     hover:text-white
   "
             >
-              Download CV
+              View CV
             </a>
           </div>
         </motion.div>
