@@ -15,9 +15,19 @@ function App() {
     const sections = document.querySelectorAll("main > section");
 
     let isScrolling = false;
+    let scrollTimeout;
 
     const handleWheel = (e) => {
-      if (isScrolling) return;
+      // Prevent scrolling while animation is running
+      if (isScrolling) {
+        e.preventDefault();
+        return;
+      }
+
+      // Ignore very small wheel movements
+      if (Math.abs(e.deltaY) < 10) {
+        return;
+      }
 
       const currentScroll = window.scrollY;
 
@@ -26,12 +36,19 @@ function App() {
       sections.forEach((section, index) => {
         const sectionTop = section.offsetTop;
 
-        if (currentScroll >= sectionTop - window.innerHeight / 2) {
+        if (
+          currentScroll >=
+          sectionTop - window.innerHeight / 2
+        ) {
           currentIndex = index;
         }
       });
 
-      if (e.deltaY > 0 && currentIndex < sections.length - 1) {
+      // Scroll DOWN
+      if (
+        e.deltaY > 0 &&
+        currentIndex < sections.length - 1
+      ) {
         isScrolling = true;
 
         sections[currentIndex + 1].scrollIntoView({
@@ -39,12 +56,18 @@ function App() {
           block: "start",
         });
 
-        setTimeout(() => {
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
           isScrolling = false;
-        }, 800);
+        }, 900);
       }
 
-      if (e.deltaY < 0 && currentIndex > 0) {
+      // Scroll UP
+      if (
+        e.deltaY < 0 &&
+        currentIndex > 0
+      ) {
         isScrolling = true;
 
         sections[currentIndex - 1].scrollIntoView({
@@ -52,29 +75,42 @@ function App() {
           block: "start",
         });
 
-        setTimeout(() => {
+        clearTimeout(scrollTimeout);
+
+        scrollTimeout = setTimeout(() => {
           isScrolling = false;
-        }, 800);
+        }, 900);
       }
     };
 
-    window.addEventListener("wheel", handleWheel, { passive: true });
+    window.addEventListener("wheel", handleWheel, {
+      passive: false,
+    });
 
     return () => {
       window.removeEventListener("wheel", handleWheel);
+      clearTimeout(scrollTimeout);
     };
   }, []);
 
   return (
     <main>
       <Hero />
+
       <AboutMe />
+
       <Skills />
+
       <Services />
+
       <FeaturedProjects />
+
       <Experience />
+
       <Education />
+
       <Contact />
+
       <Footer />
     </main>
   );
