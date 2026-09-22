@@ -5,7 +5,7 @@ const Experience = () => {
     {
       period: "2023",
       role: "Web Development Trainee",
-      company: "NTI — National Technology Institute",
+      company: "NTI - National Technology Institute",
       description:
         "Started my web development journey at NTI, building a strong foundation in web technologies and learning the fundamentals of creating modern websites and applications.",
       skills: [
