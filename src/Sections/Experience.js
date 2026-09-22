@@ -3,16 +3,58 @@ import { motion } from "framer-motion";
 const Experience = () => {
   const experiences = [
     {
-      period: "2025 - Present",
-      role: "Technical Support Agent",
-      company: "Concentrix — Samsung Canada",
+      period: "2023",
+      role: "Web Development Trainee",
+      company: "NTI — Information Technology Institute",
       description:
-        "Providing technical support to Samsung customers, troubleshooting technical issues, guiding customers through solutions, and delivering a professional customer experience.",
+        "Started my web development journey at NTI, building a strong foundation in web technologies and learning the fundamentals of creating modern websites and applications.",
       skills: [
-        "Technical Support",
-        "Troubleshooting",
-        "Customer Service",
-        "Communication",
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Web Development",
+      ],
+    },
+    {
+      period: "2024",
+      role: "React.js Developer",
+      company: "Self-Learning & Practice",
+      description:
+        "Focused on learning React.js and modern frontend development concepts, including components, state management, hooks, routing, API integration, and building reusable user interfaces.",
+      skills: [
+        "React.js",
+        "JavaScript",
+        "React Router",
+        "Hooks",
+        "REST APIs",
+      ],
+    },
+    {
+      period: "2025",
+      role: "Freelance Frontend Developer",
+      company: "Freelance",
+      description:
+        "Worked as a freelance frontend developer, gaining practical experience by working on client-based projects, understanding requirements, building user interfaces, and delivering solutions based on client needs.",
+      skills: [
+        "React.js",
+        "JavaScript",
+        "Responsive Design",
+        "Client Communication",
+        "UI Development",
+      ],
+    },
+    {
+      period: "2025 - Present",
+      role: "Frontend Developer",
+      company: "Personal Projects",
+      description:
+        "Started building complete web applications to strengthen my development skills, including e-commerce platforms, learning platforms, task management applications, form validation systems, and interactive games.",
+      skills: [
+        "React.js",
+        "Context API",
+        "JSON Server",
+        "Framer Motion",
+        "Git & GitHub",
       ],
     },
   ];
@@ -63,14 +105,14 @@ const Experience = () => {
           </p>
 
           <h2 className="text-4xl font-bold sm:text-5xl lg:text-6xl">
-            Work <span className="text-blue-500">Experience</span>
+            My <span className="text-blue-500">Experience</span>
           </h2>
 
           <div className="mx-auto mt-5 h-[2px] w-20 bg-blue-500" />
 
           <p className="mx-auto mt-6 max-w-2xl leading-7 text-gray-400">
-            My professional experience and the skills I have developed
-            throughout my career.
+            My journey from learning web development to working with clients
+            and building complete frontend applications.
           </p>
         </motion.div>
 
@@ -93,7 +135,7 @@ const Experience = () => {
 
           {experiences.map((experience, index) => (
             <motion.div
-              key={experience.company}
+              key={`${experience.company}-${experience.role}`}
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, amount: 0.2 }}
@@ -154,6 +196,7 @@ const Experience = () => {
                   md:w-[42%]
                 "
               >
+
                 {/* Date - Mobile */}
                 <span className="text-sm font-medium text-blue-400 md:hidden">
                   {experience.period}

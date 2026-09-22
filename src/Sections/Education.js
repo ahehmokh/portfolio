@@ -54,7 +54,7 @@ const Education = () => {
 
           <p className="mx-auto mt-6 max-w-2xl leading-7 text-gray-400">
             My academic background and the foundation that helped me
-            build my technical skills.
+            build my technical and software development skills.
           </p>
         </motion.div>
 
@@ -78,6 +78,7 @@ const Education = () => {
             md:p-10
           "
         >
+
           {/* Glow */}
           <div
             className="
@@ -93,7 +94,13 @@ const Education = () => {
 
             {/* Date */}
             <div className="mb-6 flex items-center gap-3">
-              <span className="h-2 w-2 rounded-full bg-blue-500 shadow-[0_0_15px_rgba(59,130,246,0.8)]" />
+              <span
+                className="
+                  h-2 w-2 rounded-full
+                  bg-blue-500
+                  shadow-[0_0_15px_rgba(59,130,246,0.8)]
+                "
+              />
 
               <span className="text-sm font-medium text-blue-400">
                 2017 — 2025
@@ -110,14 +117,15 @@ const Education = () => {
             </p>
 
             <p className="mt-6 max-w-3xl leading-8 text-gray-400">
-              Bachelor's degree in Computer Engineering with a focus
-              on software development, programming, databases and
-              computer engineering fundamentals.
+              Bachelor's degree in Computer Engineering with a strong
+              foundation in software development, programming, databases,
+              computer systems, and engineering fundamentals.
             </p>
 
             {/* Details */}
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
 
+              {/* Degree */}
               <div
                 className="
                   rounded-xl
@@ -135,6 +143,7 @@ const Education = () => {
                 </p>
               </div>
 
+              {/* Major */}
               <div
                 className="
                   rounded-xl
@@ -152,6 +161,7 @@ const Education = () => {
                 </p>
               </div>
 
+              {/* Graduation */}
               <div
                 className="
                   rounded-xl
@@ -171,7 +181,45 @@ const Education = () => {
 
             </div>
 
-            {/* Academic Project */}
+            {/* Relevant Coursework */}
+            <div className="mt-8">
+
+              <p className="text-sm font-medium uppercase tracking-wider text-blue-400">
+                Relevant Coursework
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-3">
+
+                {[
+                  "Programming",
+                  "Data Structures",
+                  "Database Systems",
+                  "Software Engineering",
+                  "Computer Networks",
+                  "Web Development",
+                ].map((course) => (
+                  <span
+                    key={course}
+                    className="
+                      rounded-lg
+                      border border-white/10
+                      bg-white/[0.03]
+                      px-4 py-2
+                      text-sm text-gray-300
+                      transition
+                      hover:border-blue-500/40
+                      hover:text-blue-400
+                    "
+                  >
+                    {course}
+                  </span>
+                ))}
+
+              </div>
+
+            </div>
+
+            {/* Graduation Project */}
             <div
               className="
                 mt-8
@@ -191,9 +239,31 @@ const Education = () => {
 
               <p className="mt-2 leading-7 text-gray-400">
                 Developed an e-learning platform using React for the
-                frontend, Node.js for the backend and SQL for database
+                frontend, Node.js for the backend, and SQL for database
                 management.
               </p>
+
+              <div className="mt-4 flex flex-wrap gap-2">
+                {[
+                  "React",
+                  "Node.js",
+                  "SQL",
+                  "Web Development",
+                ].map((technology) => (
+                  <span
+                    key={technology}
+                    className="
+                      rounded-md
+                      border border-blue-500/20
+                      bg-blue-500/5
+                      px-3 py-1
+                      text-xs text-blue-400
+                    "
+                  >
+                    {technology}
+                  </span>
+                ))}
+              </div>
             </div>
 
           </div>
